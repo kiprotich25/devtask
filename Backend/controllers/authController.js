@@ -18,8 +18,8 @@ exports.signup = async (req,res) => {
 };
 exports.login = async (req, res) => {
     const {email, password} = req.body;
-    const emailExists = await User.findOne({email});
-    if (!emailExists) return res.status(400).json({message: "User not found"});
+    const user = await User.findOne({email});
+    if (!user) return res.status(400).json({message: "User not found"});
     
   
     const match = await bcrypt.compare(password, user.password)
