@@ -5,12 +5,13 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
+  DialogTrigger, DialogClose
 } from "@/components/ui/dialog";
-import {Textarea} from "@components/ui/textarea";
-import {Button} from "@components/ui/button"
+import {Textarea} from "@/components/ui/textarea";
+import {Button} from "@/components/ui/button"
 import { useState } from "react";
-import { DialogClose } from "@base-ui/react";
+
+import {Input} from "@/components/ui/input"
 
 export default function TaskDialog ({onSubmit}) {
 
@@ -36,8 +37,8 @@ export default function TaskDialog ({onSubmit}) {
           <DialogTitle>Create new task</DialogTitle>
           <DialogDescription> Add title and description to create task</DialogDescription>
         </DialogHeader>
-        <Input placeholder="Enter name of the task" value={title} onChange={e => setTitle(e.Target.value)}/>
-        <Textarea placeholder="Enter task description" className="mt-2" value={description} onChange={e => setDescription(e.Target.value)} />
+        <Input placeholder="Enter name of the task" value={title} onChange={e => setTitle(e.target.value)}/>
+        <Textarea placeholder="Enter task description" className="mt-2" value={description} onChange={e => setDescription(e.target.value)} />
         <DialogFooter>
          <DialogClose asChild>
           <Button variant="outline">Cancel</Button>
