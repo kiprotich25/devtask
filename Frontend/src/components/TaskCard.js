@@ -12,7 +12,7 @@ import {Button} from "@/components/ui/button"
 
 export default function TaskCard ({onDelete, onToggle, task}) {
    return(
-    <Card>
+    <Card className = {`relative animation-fade ${task.completed ? "opacity-70" : ""}`}>
         <CardHeader>
           <CardTitle></CardTitle>
         </CardHeader>
