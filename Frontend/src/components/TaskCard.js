@@ -12,7 +12,18 @@ import {Button} from "@/components/ui/button"
 
 export default function TaskCard ({onDelete, onToggle, task}) {
    return(
-    
+    <Card>
+        <CardHeader>
+          <CardTitle></CardTitle>
+        </CardHeader>
+        <CardContent>
+
+        </CardContent>
+        <CardFooter>
+
+        </CardFooter>
+    </Card>
+
    )
 
 }
