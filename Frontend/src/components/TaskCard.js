@@ -14,9 +14,12 @@ export default function TaskCard ({onDelete, onToggle, task}) {
    return(
     <Card className = {`relative animation-fade ${task.completed ? "opacity-70" : ""}`}>
         <CardHeader>
-          <CardTitle></CardTitle>
+          <CardTitle className={`font-semibold text-lg ${task.completed ? "line-through text-zinc-400" : ""}`}>
+            {task.title}
+          </CardTitle>
         </CardHeader>
         <CardContent>
+            <p className="text-sm ">{task.description}</p>
 
         </CardContent>
         <CardFooter>
