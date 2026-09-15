@@ -19,8 +19,7 @@ export default function TaskCard ({onDelete, onToggle, task}) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-            <p className="text-sm ">{task.description}</p>
-
+            <p className="text-sm dark: text-zinc-700 ">{task.description}</p>
         </CardContent>
         <CardFooter>
 
