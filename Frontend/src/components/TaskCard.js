@@ -22,6 +22,17 @@ export default function TaskCard ({onDelete, onToggle, task}) {
             <p className="text-sm dark: text-zinc-700 ">{task.description}</p>
         </CardContent>
         <CardFooter>
+            <Button
+            size= "icon" variant={`${task.completed ? 'outline' : "secondary"} `}
+            onClick = {() => onToggle(task._id)}>
+              <CheckCircleIcon className="h-5 w-5"/>
+            </Button>
+
+            <Button
+            size="icon" variant="destructive"
+            onClick={() => onDelete(task._id)}>
+              <TrashIcon className="h-5 w-5"></TrashIcon>
+            </Button>
 
         </CardFooter>
     </Card>
