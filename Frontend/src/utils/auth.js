@@ -19,7 +19,7 @@ export const getUserFromToken = () => {
    
 };
 
-export const getRole = () => {
+export const getUserRole = () => {
     const user = getUserFromToken();
     return user?.role || null;
 
@@ -27,14 +27,15 @@ export const getRole = () => {
 }
 
 export const isAdmin = () => {
-    const 
+    return getUserRole() === "admin"
 
 }
 
 export const isDeveloper = () => {
-
+    return getUserRole() === "developer"
 }
 
 export const getUsername = () => {
-
+    const user = getUserFromToken()
+    return user?.username || null
 };
