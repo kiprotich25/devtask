@@ -42,7 +42,7 @@ export default function Signup() {
                 <CardTitle className="text-center text-2xl font-bold">Sign Up</CardTitle>
               </CardHeader>
               
-              <CardContent>
+              <CardContent className="space-y-4">
                 <Input/>
                 <Input/>
                 <Input/>
