@@ -7,7 +7,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import {API} from "../services/api"
 
 export default function Signup() {
-    const [username, setUserame] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
@@ -43,17 +43,35 @@ export default function Signup() {
               </CardHeader>
               
               <CardContent className="space-y-4">
-                <Input/>
-                <Input/>
-                <Input/>
+                <Input 
+                type="text"
+                placeholder="Enter username" 
+                value={username}
+                onChange={ e => setUsername(e.target.value)  }
+
+                />
+                <Input 
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange= {e => setEmail(e.target.value)}
+                />
+                <Input 
+                type="password"
+                placeholder= "Enter password"
+                value={password}
+                onChange= {e => setPassword(e.target.value)}
+
+                />
               </CardContent>
 
-              <CardFooter>
-                <Button></Button>
+              <CardFooter >
+                <Button className="w-full" onClick={handleSignup} disabled={loading}>{loading ? "signing up..." :"Sign up"}</Button>
               </CardFooter>
 
-              <p>
-                <Link>
+              <p className="text-sm text-center text-zinc-600 dark:text-zinc-300 mt-4">
+                Already have an account? {" "}
+                <Link to="/login" className="text-blue-600 hover:underline">Login
                 </Link>
               </p>
             </Card>
