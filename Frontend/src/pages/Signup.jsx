@@ -38,7 +38,7 @@ export default function Signup() {
     return(
         <div className="flex min-h-screen  justify-center items-center bg-gray-100 dark:bg-zinc-900 px-4">
             <Card className="w-full max-w-md shadow-xl animate-fade">
-              <CardHeader>
+              <CardHeader className="text-center text-2xl font-bold">
                 <CardTitle></CardTitle>
               </CardHeader>
               
