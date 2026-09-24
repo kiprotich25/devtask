@@ -43,14 +43,24 @@ export default function Login () {
         <div>
             <Card>
                 <CardHeader>
-                    <CardTitle>login</CardTitle>
+                    <CardTitle className="">login</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <Input/>
-                    <Input/>
+                    <Input 
+                    type="email"
+                    value={email}
+                    placeholder="Enter password"
+                    onChange= {e => setEmail(e.target.value)}/>
+                    <Input
+                    type ="password"
+                    value={password}
+                    placeholder="password"
+                    onChange= {e => setPassword(e.target.value)}/>
                 </CardContent>
                 <CardFooter>
-                    
+                    <p>
+                        
+                    </p>
                 </CardFooter>
             </Card>
         </div>
