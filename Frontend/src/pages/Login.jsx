@@ -25,12 +25,16 @@ export default function Login () {
         setLoading(true)
 
         try {
-            const res =
+            const res = await API.post("/auth/login" , {email, password})
+            localStorage.setItem("token", res.data.token)
+            navigate("dashboard")
+            
+            if (!res.data?.token) return alert("Token not found")
             
         } catch (error) {
-            
+            alert (error.response?.data ?.message|| "Login failed" )
         } finally {
-
+           setLoading(false)
         }
         
     }
