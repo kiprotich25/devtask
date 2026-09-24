@@ -12,6 +12,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {API} from "@/services/api";
+import {Input} from "@/components/ui/input"
 
 export default function Login () {
 
@@ -38,6 +39,22 @@ export default function Login () {
         }
         
     }
+    return (
+        <div>
+            <Card>
+                <CardHeader>
+                    <CardTitle>login</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <Input/>
+                    <Input/>
+                </CardContent>
+                <CardFooter>
+                    
+                </CardFooter>
+            </Card>
+        </div>
+    )
  
 
 }
