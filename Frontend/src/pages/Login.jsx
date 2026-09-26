@@ -4,9 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/button";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -27,10 +25,11 @@ export default function Login () {
 
         try {
             const res = await API.post("/auth/login" , {email, password})
-            localStorage.setItem("token", res.data.token)
-            navigate("dashboard")
-            
             if (!res.data?.token) return alert("Token not found")
+            localStorage.setItem("token", res.data.token)
+            navigate("/dashboard")
+            
+            
             
         } catch (error) {
             alert (error.response?.data ?.message|| "Login failed" )
@@ -49,7 +48,7 @@ export default function Login () {
                     <Input 
                     type="email"
                     value={email}
-                    placeholder="Enter password"
+                    placeholder="Enter email"
                     onChange= {e => setEmail(e.target.value)}/>
                     <Input
                     type ="password"
@@ -58,11 +57,14 @@ export default function Login () {
                     onChange= {e => setPassword(e.target.value)}/>
                 </CardContent>
                 <CardFooter className="flex justify-between">
+                    <Button className="w-full" disabled={loading} onClick={handleLogin}>
+                     {loading ? "logging in...." : "Log in"}
+                    </Button>
                     
                 </CardFooter>
                 <p className = "text-sm text-zinc-600 text-center dark:text-zinc-300 mt-4">
                         Don't have an account {" "}
-                        <Link navigate="/signup" className="text-blue-600 hover: underline">Sign up</Link>
+                        <Link to="/signup" className="text-blue-600 hover:underline">Sign up</Link>
                 </p>
             </Card>
         </div>
