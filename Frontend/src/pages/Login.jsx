@@ -28,8 +28,7 @@ export default function Login () {
             if (!res.data?.token) return alert("Token not found")
             localStorage.setItem("token", res.data.token)
             navigate("/dashboard")
-            
-            
+             
             
         } catch (error) {
             alert (error.response?.data ?.message|| "Login failed" )
