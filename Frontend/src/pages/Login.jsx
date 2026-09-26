@@ -43,7 +43,7 @@ export default function Login () {
         <div>
             <Card>
                 <CardHeader>
-                    <CardTitle className="">login</CardTitle>
+                    <CardTitle className="font-bold ">login page</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Input 
@@ -57,11 +57,13 @@ export default function Login () {
                     placeholder="password"
                     onChange= {e => setPassword(e.target.value)}/>
                 </CardContent>
-                <CardFooter>
-                    <p>
-                        
-                    </p>
+                <CardFooter className="flex justify-between">
+                    
                 </CardFooter>
+                <p className = "text-sm text-zinc-600 text-center dark:text-zinc-300 mt-4">
+                        Don't have an account {" "}
+                        <Link navigate="/signup" className="text-blue-600 hover: underline">Sign up</Link>
+                </p>
             </Card>
         </div>
     )
