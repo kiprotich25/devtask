@@ -3,13 +3,10 @@ import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { UserCircleIcon } from "@heroicons/react"
+import { UserCircleIcon } from "@heroicons/react/solid"
 import { getUserFromToken, getUserRole } from "@/utils/auth"
 import ThemeToggle from "./ThemeToggle"
 
@@ -35,14 +32,30 @@ export default function Navbar(){
               :'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
              }`
           }>
-          {userRole.charAt(0).toUpperCase() + userRole.splice(1)}
+          {userRole.charAt(0).toUpperCase() + userRole.slice(1)}
           </span>
         )}
         <ThemeToggle/>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-    
+           <Button size="icon" variant="ghost">
+            <UserCircleIcon className=" h-6 w-6"></UserCircleIcon>
+           </Button>
           </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-44">
+            {user && (
+              <>
+              <div className="px-2 py-0.5 text-sm text-gray-600 dark:text-gray-300 border-b">
+                @{user.username}
+
+              </div>
+              </>
+            )
+
+            }
+           <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+          </DropdownMenuContent>
+          
         </DropdownMenu>
 
       </div>
