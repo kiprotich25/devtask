@@ -4,3 +4,16 @@ import TaskCard from "@/components/TaskCard";
 import TaskDialog from "@/components/TaskDialog";
 import Navbar from "@/components/Navbar"
 import {API} from "@/services/api"
+
+export default function DeveloperDashboard () {
+    const [tasks, setTasks] = usestate([]);
+
+    const load = async () => {
+        const res = await API.get('/tasks/me')
+        setTasks(res.data)
+
+    } 
+
+
+
+}
