@@ -11,9 +11,13 @@ export default function DeveloperDashboard () {
     const load = async () => {
         const res = await API.get('/tasks/me')
         setTasks(res.data)
-
     } 
+    useEffect(() => {load()}, [])
+    const createTask = async (payload) => {
+        const res = await API.post('/tasks', payload)
+        setTasks(prev => [res.data, ...prev])
+        toast("Task created successfully")
 
-
+    }
 
 }
