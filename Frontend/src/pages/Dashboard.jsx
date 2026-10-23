@@ -20,4 +20,10 @@ export default function DeveloperDashboard () {
 
     }
 
+    const toogleTask = async (id) => {
+        const task = await Task.find(t => t._id === id)
+        const res = await API.put(`/tasks/:id`,{completed: !task.completed} )
+        setTasks( prev => prev.map(t => t._id == id ? res.data : t))
+    }
+
 }
